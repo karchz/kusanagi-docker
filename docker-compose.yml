@@ -8,11 +8,11 @@ services:
     stdin_open: true
     tty: true
     volumes:
-      - /volumes/mysql:/var/lib/mysql
-      - /volumes/nginx_conf.d:/etc/nginx/conf.d
-      - /volumes/httpd_conf.d:/etc/httpd/conf.d
-      - /volumes/kusanagi.d:/etc/kusanagi.d
-      - /volumes/home:home/kusanagi
+      - volumes/mysql:/var/lib/mysql
+      - volumes/nginx_conf.d:/etc/nginx/conf.d
+      - volumes/httpd_conf.d:/etc/httpd/conf.d
+      - volumes/kusanagi.d:/etc/kusanagi.d
+      - volumes/home:home/kusanagi
     command: /bin/sh
   
   kusanagi-nginx:
