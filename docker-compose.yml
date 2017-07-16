@@ -8,11 +8,11 @@ services:
     stdin_open: true
     tty: true
     volumes:
-      - /var/lib/mysql
-      - /etc/nginx/conf.d
-      - /etc/httpd/conf.d
-      - /etc/kusanagi.d
-      - /home/kusanagi
+      - /volumes/mysql:/var/lib/mysql
+      - /volumes/nginx_conf.d:/etc/nginx/conf.d
+      - /volumes/httpd_conf.d:/etc/httpd/conf.d
+      - /volumes/kusanagi.d:/etc/kusanagi.d
+      - /volumes/home:home/kusanagi
     command: /bin/sh
   
   kusanagi-nginx:
@@ -46,14 +46,6 @@ services:
   kusanagi-php7:
     container_name: kusanagi-php7
     image: primestrategy/kusanagi-php7:7.0.6-1
-    links:
-      - kusanagi-mariadb:mysql
-    volumes_from:
-      - kusanagi-data
-
-  kusanagi-php5:
-    container_name: kusanagi-php5
-    image: primestrategy/kusanagi-php5:5.6.20-1
     links:
       - kusanagi-mariadb:mysql
     volumes_from:
