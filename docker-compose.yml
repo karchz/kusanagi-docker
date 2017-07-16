@@ -12,7 +12,7 @@ services:
       - volumes/nginx_conf.d:/etc/nginx/conf.d
       - volumes/httpd_conf.d:/etc/httpd/conf.d
       - volumes/kusanagi.d:/etc/kusanagi.d
-      - volumes/home:home/kusanagi
+      - volumes/home:/home/kusanagi
     command: /bin/sh
   
   kusanagi-nginx:
